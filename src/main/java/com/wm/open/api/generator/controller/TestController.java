@@ -1,5 +1,7 @@
 package com.wm.open.api.generator.controller;
 
+import com.wm.open.api.generator.service.ModelControllerGeneratorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,9 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
+    @Autowired
+    ModelControllerGeneratorService modelControllerGeneratorService;
+
     @GetMapping("/hello")
     public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
-        return String.format("Hello %s!", name);
+
+       modelControllerGeneratorService.generateModelAndControllers();
+
+       return String.format("Hello %s!", name);
     }
 
 }
