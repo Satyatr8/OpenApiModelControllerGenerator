@@ -1,0 +1,3 @@
+# openapi-processor-spring mapping yaml /Users/s0t01a5/Hack/openapigenerator/src/main/java/com/wm/open/api/generator/gen
+options:
+  package-name: com.wm.open.api.generator.gen
